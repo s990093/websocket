@@ -1,0 +1,36 @@
+/* App.css */
+body {
+  background-color: #333; /* 背景暗色 */
+  color: #fff; /* 文字顏色 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0; /* 清除預設 margin */
+}
+
+.App-header {
+  padding: 20px;
+  text-align: center;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column; /* 將按鈕列為垂直方向 */
+  align-items: center; /* 將按鈕置中 */
+}
+
+.number-button {
+  font-size: 2em; /* 按鈕文字大小 */
+  margin: 10px;
+  padding: 30px 120px;
+  background-color: #555; /* 按鈕背景色 */
+  color: #fff; /* 按鈕文字顏色 */
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  width: auto; /* 讓按鈕寬度自適應內容 */
+}
+
+.number-button:hover {
+  background-color: #777; /* 按鈕懸停時背景色 */
+}
