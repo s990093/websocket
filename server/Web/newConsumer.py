@@ -35,52 +35,24 @@ class MouseConsumer(WebsocketConsumer):
         )
 
     def receive(self, text_data):
-        """
-        Method called when a message is received from the WebSocket.
-        Processes the message and sends it to the group if it is valid.
-        """
-        try:
-            text_data_json = json.loads(text_data)
-            device = text_data_json.get('device')
+        text_data_json = json.loads(text_data)
+        # print(text_data_json)
 
-            console.print(f"device: {text_data_json}")
+        async_to_sync(self.channel_layer.group_send)(
+                    self.room_group_name,
+                    {
+                        'type': 'chat_message',
+                        'message': text_data_json
+                    }
+                )
+    
 
-            if device == 'mobile':
-                action = text_data_json.get('action')
-                if action == 'double':
-                    async_to_sync(self.channel_layer.group_send)(
-                        self.room_group_name,
-                        {
-                            'type': 'broadcast_message',
-                            'message': 'Right click detected!',
-                            'coordinates': text_data_json.get('coordinates', {})
-                        }
-                    )
-                elif action == 'mouse_move':
-                    async_to_sync(self.channel_layer.group_send)(
-                        self.room_group_name,
-                        {
-                            'type': 'broadcast_message',
-                            'message': 'Mouse moved!',
-                            'coordinates': text_data_json.get('coordinates', {})
-                        }
-                    )
-          
-        except json.JSONDecodeError:
-            console.print("Received message is not in JSON format", style="bold red")
-
-    def broadcast_message(self, event):
-        """
-        Method called when a broadcast message is received from the group.
-        Sends the message to the WebSocket.
-        """
+    def chat_message(self, event):
         message = event['message']
-        response = {
-            'message': message,
-            'timestamp': datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-        }
-        if 'coordinates' in event:
-            response['coordinates'] = event['coordinates']
-        if 'speed' in event:
-            response['speed'] = event['speed']
-        self.send(text_data=json.dumps(response))
+        
+        print(message)
+
+        # Send message to WebSocket
+        self.send(text_data=json.dumps({
+            'message': message
+        }))

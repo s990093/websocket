@@ -51,7 +51,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'drf_yasg',
-    "django_listing",
     # ap
     "App",
     "YoloApp",
@@ -59,9 +58,7 @@ INSTALLED_APPS = [
     "TestApp"
 ]
 
-DJANGO_LISTING = {
-        "THEME": "bootstrap5",  # Could be default, bootstrap4, bootstrap5
-}
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
