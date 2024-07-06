@@ -52,10 +52,8 @@ INSTALLED_APPS = [
     'corsheaders',
     'drf_yasg',
     # ap
-    "App",
-    "YoloApp",
+   
     "Web",
-    "TestApp"
 ]
 
 
