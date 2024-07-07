@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 
 function App() {
-  const [currentNumber, setCurrentNumber] = useState(1);
+  const darkMode = true;
   const ws = new WebSocket('ws://49.213.238.75:8003/ws/chat/mouse/');
 
   useEffect(() => {
@@ -52,11 +52,12 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <div className="button-container">
-          <button className="number-button" onClick={() => handleButtonClick(1)}>next</button>
-          <button className="number-button" onClick={() => handleButtonClick(2)}>prev</button>
+    <div className="min-h-screen bg-gray-900 flex flex-col items-center justify-center">
+      <header className="App-header w-full max-w-md">
+        <div className="button-container flex flex-col items-center space-y-16 w-full px-[10px]">
+          <button className="number-button bg-gray-700 text-gray-200 text-2xl py-16 w-full rounded-lg" onClick={() => handleButtonClick(1)}>Next</button>
+          <button className="number-button bg-gray-700 text-gray-200 text-2xl py-16 w-full rounded-lg" onClick={() => handleButtonClick(2)}>Prev</button>
+          <button className="number-button bg-gray-700 text-gray-200 text-2xl py-16 w-full rounded-lg" onClick={() => handleButtonClick(3)}>Video</button>
         </div>
       </header>
     </div>
