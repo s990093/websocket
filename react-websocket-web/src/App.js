@@ -55,8 +55,8 @@ function App() {
     <div className="App">
       <header className="App-header">
         <div className="button-container">
-          <button className="number-button" onClick={() => handleButtonClick(1)}>1</button>
-          <button className="number-button" onClick={() => handleButtonClick(2)}>2</button>
+          <button className="number-button" onClick={() => handleButtonClick(1)}>next</button>
+          <button className="number-button" onClick={() => handleButtonClick(2)}>prev</button>
         </div>
       </header>
     </div>
