@@ -29,7 +29,7 @@ function App() {
   // 按鈕點擊處理函數
   const handleButtonClick = (number) => {
     // 建立 WebSocket 連接
-    const ws = new WebSocket('ws://127.0.0.1:8003/ws/chat/mouse/');
+    const ws = new WebSocket('ws://49.213.238.75:8003/ws/chat/mouse/');
 
     ws.onopen = () => {
       console.log('WebSocket 連接成功！');
