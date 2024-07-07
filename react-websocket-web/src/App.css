@@ -12,19 +12,22 @@ body {
 .App-header {
   padding: 20px;
   text-align: center;
+  width: 100%;
+  height: 100%;
 }
 
 .button-container {
   display: flex;
   flex-direction: column; /* 將按鈕列為垂直方向 */
+  justify-content: space-between; /* 按鈕之間留有空間 */
   align-items: center; /* 將按鈕置中 */
+  height: 100%; /* 確保容器高度 */
   width: 100%; /* 確保容器寬度 */
-  max-width: calc(100% - 60px); /* 保留容器外邊距30px */
 }
 
 .number-button {
   font-size: 2em; /* 按鈕文字大小 */
-  margin: 10px; /* 上下左右間距 */
+  margin: 30px; /* 上下左右間距 */
   padding: 100px 220px; /* 內間距 */
   background-color: #555; /* 按鈕背景色 */
   color: #fff; /* 按鈕文字顏色 */
